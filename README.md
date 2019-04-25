@@ -1,15 +1,15 @@
-Desktop app with Electorn + React
+POC Desktop app with Electorn + React
 
 Distribution with electron-builder
 
 ## Build
 
-# Development
+### Development
 
 1. npm start
 2. npm electron-dev
 
-# Production
+### Production
 1. npm build
 2. npm electron
 
