@@ -14,7 +14,11 @@ function createWindow () {
     width: 800,
     height: 600,
     frame: true,
-    show: false
+    show: false,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true
+    }
   })
 
   //mainWindow.maximize();
