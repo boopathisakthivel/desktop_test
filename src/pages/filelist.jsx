@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 import FileTable from './../components/filetable';
+import IconButton from '@material-ui/core/IconButton';
+import HomeIcon from '@material-ui/icons/Home';
 
 const INPUT_DIRECTORY = "./config";
 
@@ -25,9 +27,16 @@ class FileList extends React.Component {
     }
   };
 
+  handleHome = () => {
+    this.props.history.push("/");
+  };
+
   render = () => {
     return (
       <div className={this.props.classes.filelist}>
+        <IconButton aria-label="Home" onClick={this.handleHome}>
+            <HomeIcon />
+        </IconButton>
         <FileTable directory={INPUT_DIRECTORY} actionHandler={this.handleWidgetAction} />
       </div>
     );

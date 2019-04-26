@@ -5,6 +5,9 @@ import './App.css';
 import HomePage from './pages/home';
 import FileList from './pages/filelist';
 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+
 const directory = "./../config";
 
 class App extends React.Component {
@@ -27,11 +30,25 @@ class App extends React.Component {
     console.log("App action=",action);
     let breadcrumbs = this.state.breadcrumbs || [];
     breadcrumbs.push(action);
-
-    this.setState({action: action, breadcrumbs: breadcrumbs});
+    //action: action, 
+    //this.props.history.push("/files");
+    this.setState({breadcrumbs: breadcrumbs});
   }
 
   render = () => {
+    return (
+      <Router>
+        <div>
+          <Route exact path="/" render={({history}) => (
+                <HomePage {...this.props} history={history} handlePageAction={this.handlePageAction} />
+            )}/>
+          <Route path="/files" component={FileList} />
+        </div>
+    </Router>
+    );
+  }
+
+  render1 = () => {
     return (
       <>
         <div>

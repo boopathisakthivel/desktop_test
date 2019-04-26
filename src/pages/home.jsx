@@ -19,6 +19,8 @@ class HomePage extends React.Component {
 
   handleWidgetAction = (action) => {
     console.log("Page Action=", action);
+    this.props.history.push("/files");
+    
     if(this.props.handlePageAction) {
       this.props.handlePageAction(action);
     }
