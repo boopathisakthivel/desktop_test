@@ -1,8 +1,11 @@
-import React from 'react';
+import React from 'react'
 import ReactDOM from 'react-dom';
+
+import App from './App';
 import './index.css';
-import Demo from './table';
 import * as serviceWorker from './serviceWorker';
+
+/*
 
 let directory = "./config";
 
@@ -15,7 +18,9 @@ fetch('./../settings.json')
     Settings = "test";
 })
 .then(env => ReactDOM.render(<Demo directory={directory} settings={Settings}/>, document.getElementById('root')));
+*/
 
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
