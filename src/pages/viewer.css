@@ -1,0 +1,5 @@
+.react-grid-HeaderCell,
+.react-grid-Cell,
+.rdg-selected {
+    box-sizing: border-box;
+}

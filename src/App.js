@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import HomePage from './pages/home';
 import FileList from './pages/filelist';
+import Viewer from './pages/viewer';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -43,6 +44,7 @@ class App extends React.Component {
                 <HomePage {...this.props} history={history} handlePageAction={this.handlePageAction} />
             )}/>
           <Route path="/files" component={FileList} />
+          <Route path="/viewer" component={Viewer} />
         </div>
     </Router>
     );

@@ -5,11 +5,19 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "electron-pdf-window": "^1.0.12",
+    "jspdf": "^1.5.3",
+    "jspdf-autotable": "^3.1.1",
     "material-table": "^1.32.0",
+    "print-js": "^1.0.55",
     "react": "^16.8.6",
+    "react-data-grid": "^6.1.0",
+    "react-data-grid-addons": "^6.1.0",
     "react-dom": "^16.8.6",
+    "react-hotkeys": "^1.1.4",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.0",
+    "xlsx": "^0.14.2"
   },
   "homepage": "./",
   "main": "src/electron-starter.js",
