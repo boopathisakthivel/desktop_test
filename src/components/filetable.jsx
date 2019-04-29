@@ -21,10 +21,12 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import TextField from '@material-ui/core/TextField';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 
 const electron = window.require('electron');
-const fs = electron.remote.require('fs');
+const electronFS = electron.remote.require('fs');
+
 
 let counter = 0;
 
@@ -143,7 +145,7 @@ const toolbarStyles = theme => ({
 });
 
 let EnhancedTableToolbar = props => {
-  const { numSelected, selectedText, classes } = props;
+  const { numSelected, selectedText, handleSearch, classes } = props;
 
   return (
     <Toolbar
@@ -152,31 +154,15 @@ let EnhancedTableToolbar = props => {
       })}
     >
       <div className={classes.title}>
-        {numSelected > 0 ? (
-          <>
-            <Typography color="inherit" variant="subtitle1">
-              {numSelected} {selectedText} selected
-
-              <IconButton className={classes.button} aria-label="Edit">
-                <DeleteIcon />
-              </IconButton>
-            </Typography>
-          </>
-        ) : (
-          <Typography variant="h6" id="tableTitle">
+        <Typography variant="h6" id="tableTitle">
             File List
           </Typography>
-        )}
       </div>
       <div className={classes.spacer} />
       <div className={classes.actions}>
-        <Input
-              placeholder="Placeholder"
-              className={classes.input}
-              inputProps={{
-                'aria-label': 'Description',
-              }}
-        />
+        <div>
+          <TextField  placeholder="Search" onChange={handleSearch} value={selectedText}/>
+        </div>
       </div>
     </Toolbar>
   );
@@ -210,6 +196,7 @@ class FileTable extends React.Component {
     selected: [],
     selectedText: "",
     data: [],
+    filterData: [],
     page: 0,
     rowsPerPage: 10,
   };
@@ -223,7 +210,7 @@ class FileTable extends React.Component {
         fileList.push(createData(file));
       });
 
-      this.setState({ data : fileList});
+      this.setState({ data : fileList, filterData: fileList});
     });
   }
 
@@ -249,7 +236,8 @@ class FileTable extends React.Component {
       newSelected.push(id);
     }
 
-    this.setState({ selected: newSelected, selectedText: selectedText });
+    this.setState({ selected: newSelected});
+    this.props.actionHandler(null, name);
   };
 
   handleChangePage = (event, page) => {
@@ -260,16 +248,33 @@ class FileTable extends React.Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
+  handleSearch = event => {
+    const {data} = this.state
+    let filteredDatas = []
+    filteredDatas = data.filter(e => {
+        let mathesItems = Object.values(e)
+        let retVal = true;
+        mathesItems.forEach(e => {
+            const regex = new RegExp(event.target.value, 'gi')
+            if (typeof e == 'string')
+                retVal = e.match(regex)
+        })
+        return retVal;
+    })
+    this.setState({filterData: filteredDatas, selectedText: event.target.value})
+  };
+
   isSelected = id => this.state.selected.indexOf(id) !== -1;
 
   render() {
     const { classes } = this.props;
-    const { data, order, orderBy, selected, selectedText, rowsPerPage, page } = this.state;
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
+    const { filterData, order, orderBy, selected, selectedText, rowsPerPage, page } = this.state;
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, filterData.length - page * rowsPerPage);
 
     return (
       <Paper className={classes.root}>
-        <EnhancedTableToolbar numSelected={selected.length} selectedText={selectedText}/>
+        <EnhancedTableToolbar numSelected={selected.length} selectedText={selectedText} handleSearch={this.handleSearch}/>
+
         <div className={classes.tableWrapper}>
           <Table className={classes.table} aria-labelledby="tableTitle">
             <EnhancedTableHead
@@ -277,17 +282,17 @@ class FileTable extends React.Component {
               order={order}
               orderBy={orderBy}
               onRequestSort={this.handleRequestSort}
-              rowCount={data.length}
+              rowCount={filterData.length}
             />
             <TableBody>
-              {stableSort(data, getSorting(order, orderBy))
+              {stableSort(filterData, getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map(n => {
                   const isSelected = this.isSelected(n.id);
                   return (
                     <TableRow
                       hover
-                      onClick={event => this.handleClick(event, n.id, n.name)}
+                      onDoubleClick={event => this.handleClick(event, n.id, n.name)}
                       role="checkbox"
                       aria-checked={isSelected}
                       tabIndex={-1}
@@ -314,7 +319,7 @@ class FileTable extends React.Component {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={data.length}
+          count={filterData.length}
           rowsPerPage={rowsPerPage}
           page={page}
           backIconButtonProps={{
@@ -415,7 +420,7 @@ const styles = theme => ({
 
 const generateFileTreeObject = directoryString => {
   return new Promise((resolve,reject) => {
-      fs.readdir(directoryString, (err, arrayOfFileNameStrings) => {
+    electronFS.readdir(directoryString, (err, arrayOfFileNameStrings) => {
         resolve(arrayOfFileNameStrings);
     });
   });

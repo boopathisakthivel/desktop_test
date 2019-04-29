@@ -43,8 +43,12 @@ class App extends React.Component {
           <Route exact path="/" render={({history}) => (
                 <HomePage {...this.props} history={history} handlePageAction={this.handlePageAction} />
             )}/>
-          <Route path="/files" component={FileList} />
-          <Route path="/viewer" component={Viewer} />
+          <Route exact path="/files" render={({history}) => (
+                <FileList {...this.props} history={history} handlePageAction={this.handlePageAction} />
+            )}/>
+          <Route exact path="/viewer" render={({history}) => (
+                <Viewer {...this.props} history={history} handlePageAction={this.handlePageAction} />
+            )}/>
         </div>
     </Router>
     );

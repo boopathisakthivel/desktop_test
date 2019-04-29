@@ -20,11 +20,12 @@ class FileList extends React.Component {
     this.handleWidgetAction = this.handleWidgetAction.bind(this);
   };
 
-  handleWidgetAction = (action) => {
+  handleWidgetAction = (action, name) => {
     console.log("Page Action=", action);
     if(this.props.handlePageAction) {
       this.props.handlePageAction(action);
     }
+    this.props.history.push("/viewer");
   };
 
   handleHome = () => {
@@ -32,12 +33,14 @@ class FileList extends React.Component {
   };
 
   render = () => {
+    let {history} = this.props.history;
+
     return (
       <div className={this.props.classes.filelist}>
         <IconButton aria-label="Home" onClick={this.handleHome}>
             <HomeIcon />
         </IconButton>
-        <FileTable directory={INPUT_DIRECTORY} actionHandler={this.handleWidgetAction} />
+        <FileTable history={history} directory={INPUT_DIRECTORY} actionHandler={this.handleWidgetAction} />
       </div>
     );
   }
