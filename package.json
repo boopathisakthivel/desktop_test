@@ -36,7 +36,7 @@
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps",
     "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
-    "create-installer-win": "node installers/windows/createinstaller.js"
+    "create-installer-win": "node /public/installers/windows/createinstaller.js"
   },
   "eslintConfig": {
     "extends": "react-app"
