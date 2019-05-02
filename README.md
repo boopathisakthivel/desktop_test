@@ -44,26 +44,36 @@ https://www.npmjs.com/package/query-string
 
 https://stackoverflow.com/questions/49130876/how-to-integrate-error-boundary-in-components-routed-using-react-router
 
-
 https://stackoverflow.com/questions/41140960/where-can-i-find-the-logs-for-my-electron-app-in-production
 
 https://www.npmjs.com/package/electron-log
 
-https://github.com/electron-userland
+
+***Electron Projects***
 
 https://github.com/electron
+
+https://github.com/electron-userland
 
 ***Builders***
 
 https://github.com/Squirrel/Squirrel.Windows
 
-https://github.com/iffy/electron-updater-example
+https://github.com/electron-userland/electron-builder
 
 https://medium.com/@kitze/%EF%B8%8F-from-react-to-an-electron-app-ready-for-production-a0468ecb1da3
 
 https://github.com/kitze/react-electron-example
 
 https://github.com/electron-react-boilerplate/electron-react-boilerplate
+
+https://github.com/electron/windows-installer
+
+https://www.christianengvall.se/electron-windows-installer/
+
+https://www.electron.build/auto-update
+
+https://github.com/iffy/electron-updater-example
 
 
 ***Snippets***
