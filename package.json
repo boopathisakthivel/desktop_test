@@ -24,7 +24,7 @@
     "xlsx": "^0.14.2"
   },
   "homepage": "./",
-  "main": "./src/electron-starter.js",
+  "main": "./public/electron.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
