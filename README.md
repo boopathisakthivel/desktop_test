@@ -76,6 +76,13 @@ https://www.electron.build/auto-update
 https://github.com/iffy/electron-updater-example
 
 
+***Issues***
+https://stackoverflow.com/questions/36505404/how-to-use-react-router-with-electron
+
+https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/HashRouter.md
+
+https://discuss.atom.io/t/how-to-use-react-router-in-electron/48965/2
+
 ***Snippets***
 
 'web-preferences': {

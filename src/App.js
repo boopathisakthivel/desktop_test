@@ -6,7 +6,7 @@ import HomePage from './pages/home';
 import FileList from './pages/filelist';
 import Viewer from './pages/viewer';
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 
 const directory = "./../config";
@@ -41,6 +41,9 @@ class App extends React.Component {
       <Router>
         <div>
           <Route exact path="/" render={({history}) => (
+                <HomePage {...this.props} history={history} handlePageAction={this.handlePageAction} />
+            )}/>
+          <Route exact path="/home" render={({history}) => (
                 <HomePage {...this.props} history={history} handlePageAction={this.handlePageAction} />
             )}/>
           <Route exact path="/files" render={({history}) => (

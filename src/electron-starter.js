@@ -23,7 +23,8 @@ function createWindow () {
     show: false,
     webPreferences: {
       nodeIntegration: true,
-      enableRemoteModule: true
+      enableRemoteModule: true,
+      webSecurity: false  //TODO - disabled to load build file in production, to be updated future
     }
   })
 
@@ -32,11 +33,12 @@ function createWindow () {
   //mainWindow.toggleDevTools();
   //mainWindow.setFullScreen(true);
 
-  splash = new BrowserWindow({width: 810, height: 610, transparent: true, frame: false, alwaysOnTop: true});
+  let splash = new BrowserWindow({width: 810, height: 610, transparent: true, frame: false, alwaysOnTop: true});
   splash.loadURL(`file://${__dirname}/splash.html`);
 
   const startUrl = process.env.ELECTRON_START_URL || url.format({
-		pathname: path.join(__dirname, '/../build/index.html'),
+    pathname: path.join(__dirname, '/../build/index.html'),
+    hash: '/',
 		protocol: 'file:',
 		slashes: true
 	});
