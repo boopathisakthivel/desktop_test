@@ -37,7 +37,8 @@ function createWindow () {
     show: false,
     webPreferences: {
       nodeIntegration: true,
-      enableRemoteModule: true
+      enableRemoteModule: true,
+      webSecurity: false  //TODO - disabled to load build file in production, to be updated future
     }
   })
 
@@ -56,7 +57,8 @@ function createWindow () {
   }));
 
   const startUrl = process.env.ELECTRON_START_URL || url.format({
-		pathname: path.join(__dirname, '/../build/index.html'),
+    pathname: path.join(__dirname, '/../build/index.html'),
+    hash: '/',
 		protocol: 'file:',
 		slashes: true
 	});
