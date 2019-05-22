@@ -75,6 +75,31 @@ https://www.electron.build/auto-update
 
 https://github.com/iffy/electron-updater-example
 
+***Logs***
+https://github.com/winstonjs/winston
+https://www.digitalocean.com/community/tutorials/how-to-use-winston-to-log-node-js-applications
+
+
+Enable network logs:
+https://electronjs.org/docs/api/net-log
+
+***i18***
+https://www.christianengvall.se/electron-localization/
+
+https://www.i18next.com/overview/comparison-to-others
+
+Issues:
+https://github.com/i18next/i18next/issues/869
+https://discuss.atom.io/t/internationalization-setup-i18n/34128
+
+***Other Notes***
+https://hub.packtpub.com/internationalization-localization-node-js-app/
+
+
+***Know about JS***
+https://bestofjs.org/
+https://bestofjs.org/projects/electron/
+
 
 ***Snippets***
 
