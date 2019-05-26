@@ -9486,10 +9486,10 @@ pretty-format@^24.7.0:
     ansi-styles "^3.2.0"
     react-is "^16.8.4"
 
-print-js@^1.0.55:
-  version "1.0.55"
-  resolved "https://registry.yarnpkg.com/print-js/-/print-js-1.0.55.tgz#750556d8c15fd5af89007670a48bf6a1aece67b7"
-  integrity sha512-bCYb9ubPmOYSoHtv626P82hf+MM6TOrm5s44FNM2D2yfxe0QA5w1Wz3gckKacNW4C3er8k64yHHAL/3xnjOSoQ==
+print-js@^1.0.61:
+  version "1.0.61"
+  resolved "https://registry.yarnpkg.com/print-js/-/print-js-1.0.61.tgz#6e6079f636c04fc34f23fa561f0b8fced32e36d3"
+  integrity sha512-H/GhVZMroI7qqXH+6LrtFacLOcapRIUrcJD4F4BONZFTk6VtmGC2dqQydzW4RYJpfsCxNUg2Tyi7A46zKC3wmQ==
 
 printj@~1.1.0, printj@~1.1.2:
   version "1.1.2"
