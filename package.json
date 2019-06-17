@@ -12,7 +12,7 @@
     "electron-pdf-window": "^1.0.12",
     "jspdf": "^1.5.3",
     "jspdf-autotable": "^3.1.1",
-    "material-table": "^1.32.0",
+    "material-table": "^1.39.2",
     "print-js": "^1.0.55",
     "query-string": "^6.5.0",
     "react": "^16.8.6",
