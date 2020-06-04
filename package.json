@@ -60,7 +60,7 @@
     "electron-builder": "^20.39.0",
     "electron-winstaller": "^3.0.4",
     "foreman": "^3.0.1",
-    "typescript": "^3.4.5"
+    "typescript": "^3.9.5"
   },
   "build": {
     "appId": "electron.desktop",
