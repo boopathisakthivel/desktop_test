@@ -23,7 +23,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "winston": "^3.2.1",
-    "xlsx": "^0.14.2"
+    "xlsx": "^0.16.5"
   },
   "homepage": "./",
   "main": "./public/electron.js",
