@@ -4109,10 +4109,10 @@ electron-download@^4.1.0:
     semver "^5.4.1"
     sumchecker "^2.0.2"
 
-electron-i18n@^1.1362.0:
-  version "1.1362.0"
-  resolved "https://registry.yarnpkg.com/electron-i18n/-/electron-i18n-1.1362.0.tgz#2d4d436cb096c4301e39429783e83e5d95791290"
-  integrity sha512-hDeB5AQjOqPCqwLUHFQuOSQZjDfJFmRIWJ1sCts4tenpbi/xp4WT9hgNjI1R+Q5bw++2dMkvTDa7rF38bJyILg==
+electron-i18n@^1.2866.0:
+  version "1.2866.0"
+  resolved "https://registry.yarnpkg.com/electron-i18n/-/electron-i18n-1.2866.0.tgz#8768da6a0bb578d6998a3205c0593926d78bb715"
+  integrity sha512-M3cW2kkMWZ2NTxFfU6rdf2ZRLg4FYRrivL6BB0uZgxHRJSCHP1Vt7BIsGE3s8Dy5x1apZiTgURm8G0BQD+xZKA==
 
 electron-osx-sign@0.4.11:
   version "0.4.11"
