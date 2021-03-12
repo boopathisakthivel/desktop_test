@@ -10,7 +10,7 @@
     "@material-ui/icons": "^3.0.2",
     "electron-i18n": "^1.1362.0",
     "electron-pdf-window": "^1.0.12",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "jspdf-autotable": "^3.1.1",
     "material-table": "^1.32.0",
     "print-js": "^1.0.55",
